@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +16,10 @@
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family: Arial, sans-serif;
 }
+
+/* Center the content vertically and horizontally */
 
 section{
 height:100vh;
@@ -51,6 +54,8 @@ border:1px solid #333;
 cursor:pointer;
 background:white;
 }
+
+/* Hover effect */
 
 button:hover{
 background:#eee;
@@ -93,20 +98,20 @@ background:#eee;
 // Store the current counter value
 let count = 0;
 
-// Select the span that displays the counter
+// Select the span that displays the counter value
 const value = document.getElementById("value");
 
-// Select the container that holds the buttons
+// Select the container that holds all buttons
 const buttons = document.querySelector(".button-container");
 
-// Listen for click events on the button container
+// Listen for click events on the container
 buttons.addEventListener("click", (e) => {
 
-    // Only run if a button was clicked
-    if(e.target.classList.contains("btn") || e.target.parentElement.classList.contains("btn")){
+    // Detect which button was clicked
+    const button = e.target.closest(".btn");
 
-        // Detect the correct button even if the icon is clicked
-        const button = e.target.closest("button");
+    // Only continue if a button was clicked
+    if(button){
 
         // Increase counter
         if(button.id === "increase"){
@@ -123,10 +128,10 @@ buttons.addEventListener("click", (e) => {
             count = 0;
         }
 
-        // Update the number on screen
+        // Update the number displayed on screen
         value.innerText = count;
 
-        // Change color based on value
+        // Change color depending on value
         if(count > 0){
             value.style.color = "green";
         }
@@ -144,7 +149,6 @@ buttons.addEventListener("click", (e) => {
 });
 
 </script>
-
 
 </body>
 </html>
